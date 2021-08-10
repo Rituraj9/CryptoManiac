@@ -1,1 +1,1 @@
-web: gunicorn app:node_5000
+web: gunicorn node_5000:app
