@@ -1,0 +1,97 @@
+
+video {
+	object-fit: cover;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+  }
+#fore{
+	position: relative;
+}
+  h1{
+	font-family: 'Raleway', sans-serif;
+	font-size: 60px;
+	text-align: center;
+	color:	#00bfff;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #00bfff,
+      0 0 82px	#00bfff,
+      0 0 92px	#00bfff,
+      0 0 102px #00bfff,
+      0 0 151px #00bfff;
+}
+
+#get_chain_details{
+	background-image: url('blockchain.jpg');
+    
+	background-size: 400px 400px; 
+	background-repeat: no-repeat; 
+	width: 400px;
+	height:400px; 
+	
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 10px;
+	display: inline-block;
+	text-align: center; 
+	margin-right: 150px;
+	padding-top: 130px;
+}
+
+#get_chain_details:hover{
+	border-color: yellow;
+}
+
+#text{
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	font-size: 50px;
+}
+
+#mine_block{
+	background-image: url('mine blockchain.jpg');
+	background-size: 400px 400px;
+	background-repeat: no-repeat; 
+	width: 400px;
+	height: 400px; 
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	display: inline-block;
+	text-align: center;
+	margin-left: 150px;
+	border-radius: 10px;
+	padding-top: 130px;
+}
+
+#transactions{
+	background-image: url('Security-Blog-Post.jpeg');
+	background-size: 400px 400px;
+	background-repeat: no-repeat; 
+	width: 400px;
+	height: 400px; 
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 10px;
+	display: inline-block;
+	text-align: center;
+	margin-top: 20px;
+	margin-right: 150px;
+	padding-top: 130px;
+}
+
+#Wallet
+{
+	background-image: url('wallet.jpg');
+	background-size: 400px 400px;
+	background-repeat: no-repeat; 
+	width: 400px;
+	height: 400px; 
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 10px;
+	display: inline-block;
+	margin-left: 150px; 
+	text-align: center;
+	padding-top: 130px;
+}
