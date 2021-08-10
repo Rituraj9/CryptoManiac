@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+    <title>Cryptocurrency</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <span id="mine"></span>
+
+{% block javascript %}
+<ul>
+<script>
+ var chainDetails = JSON.parse('{{ mining | tojson | safe}}');
+
+
+ document.write('<table class="table">');
+  document.write('<thread>');
+  document.write('<tr>');
+    document.write(  '<th scope="col">Index</th>');
+    document.write( '<th scope="col">Time Stamp</th>');
+    document.write(  '<th scope="col">Message</th>');
+    document.write(  '<th scope="col">Proof</th>');
+    document.write( '</tr>' );
+    document.write('</thread>');
+    document.write('<tbody>');
+ //for( i = 0; i < chainDetails.length; i++)
+ // {
+    document.write('<tr>');
+    document.write('<td>'+chainDetails.index +'</td>') ;
+    document.write('<td>'+chainDetails.timestamp +'</td>' );
+    document.write('<td>'+chainDetails.message+'</td>' );
+    document.write('<td>'+chainDetails.proof+'</td>' );
+    document.write( '</tr>');
+  //} 
+  document.write( '</tbody>');
+  document.write('</table>');
+  document.write('<div style="width: 400px;height: 150px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;padding: 10px">');
+  document.write('Transaction Details'+'</br>');
+  document.write("Sender:" + chainDetails.transaction[0].sender); 
+  document.write('</br>'+"Receiver:" + chainDetails.transaction[0].receiver); 
+  document.write('</br>'+"Amount:"+ chainDetails.transaction[0].amount);  
+  document.write('</div>');
+  </script>
+</ul> 
+  {% endblock %}
+   
+
+</body>
+
+</html>

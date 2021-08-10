@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+    <title>Cryptocurrency</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body style="padding-right: 20px;">
+<h1 style="text-align: center;"> My Wallet </h1>
+<span id="chain"></span>
+{% block javascript %}
+<ul>
+<script>
+ var chainDetails = JSON.parse('{{ responsek | tojson | safe}}');
+
+
+ document.write('<table class="table table-striped table-hover">');
+  document.write('<thread >');
+  document.write('<tr>');
+    document.write('<th scope="col">Index</th>');
+    document.write('<th scope="col">Time Stamp</th>');
+    document.write('<th scope="col">Sender</th>');
+    document.write('<th scope="col">Receiver</th>');
+    document.write('<th scope="col">Amount</th>');
+    document.write('</tr>');
+    document.write('</thread>');
+    document.write('<tbody>');
+    document.write('<tr>');
+    document.write('<td>'+chainDetails.chain[0].index +'</td>') ;
+    document.write('<td>'+chainDetails.chain[0].timestamp +'</td>' );
+    document.write('<td>'+"null"+'</td>' );
+    document.write('<td>'+"null"+'</td>' );
+    document.write('<td>'+"null"+'</td>' );
+    document.write( '</tr>');
+    var sum = 0;
+    
+ for( i = 1; i < chainDetails.length; i++)
+  {
+    document.write('<tr>');
+    document.write('<td>'+chainDetails.chain[i].index +'</td>') ;
+    document.write('<td>'+chainDetails.chain[i].timestamp +'</td>' );
+    if(typeof chainDetails.chain[i].transactions[1] == "undefined")
+    {
+    document.write('<td>'+chainDetails.chain[i].transactions[0].sender+'</td>' );
+    document.write('<td>'+chainDetails.chain[i].transactions[0].receiver+'</td>' );
+    document.write('<td>'+chainDetails.chain[i].transactions[0].amount+'</td>' );
+    sum += chainDetails.chain[i].transactions[0].amount;
+    }
+    else{
+
+      document.write('<td>'+chainDetails.chain[i].transactions[1].sender+'</td>' );
+      document.write('<td>'+chainDetails.chain[i].transactions[1].receiver+'</td>' );
+      document.write('<td>'+chainDetails.chain[i].transactions[1].amount+'</td>' );
+      sum += chainDetails.chain[i].transactions[1].amount;
+    }
+    document.write( '</tr>');
+  } 
+  document.write('</tbody>');
+  document.write('</table>');
+  document.write("Amount is wallet: "+ sum);        
+
+  </script>
+</ul> 
+  {% endblock %}
+</body>
+
+</html>
